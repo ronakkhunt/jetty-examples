@@ -16,7 +16,7 @@ public class HelloWorldHandler extends AbstractHandler	 {
 			HttpServletResponse servletResponse) throws IOException, ServletException {
 		
 		/**
-		 * NOTE: Target here will be path. e.g. for localhost:8080/json, target="/json"
+		 * NOTE: target here will be path. e.g. for localhost:8080/json, target="/json"
 		 * using target we can set different response based on target value.
 		 */
 		String name = servletRequest.getParameter("name");
