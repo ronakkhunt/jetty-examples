@@ -11,7 +11,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
 public class HelloWorldHandler extends AbstractHandler	 {
-
+	
 	public void handle(String target, Request request, HttpServletRequest servletRequest,
 			HttpServletResponse servletResponse) throws IOException, ServletException {
 		
@@ -25,8 +25,12 @@ public class HelloWorldHandler extends AbstractHandler	 {
 		}
 		
 		if("/hello".equals(target)) {
+			
+			//defining response content type
 			servletResponse.setContentType("text/html");
+			
 			servletResponse.getWriter().println("<h2>Hello " + name + " !!</h2>");
+			
 			servletResponse.setStatus(HttpServletResponse.SC_OK);
 		}
 		
@@ -38,9 +42,12 @@ public class HelloWorldHandler extends AbstractHandler	 {
 			servletResponse.getWriter().println("404 Not Found");
 			servletResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		}
+		
+		//telling jetty that request has been handled.
 		request.setHandled(true);
 	}
 	public static void main(String[] args) throws Exception {
+		
 		Server server = new Server(8080);
 		server.setHandler(new HelloWorldHandler());
 		server.start();
