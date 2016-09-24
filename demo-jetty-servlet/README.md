@@ -1,0 +1,1 @@
+Base on https://examples.javacodegeeks.com/enterprise-java/jetty/jetty-web-xml-configuration-example/
